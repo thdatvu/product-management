@@ -130,12 +130,10 @@ module.exports.createPost = async(req, res) => {
         const countProducts = await Product.countDocuments();
         req.body.position = countProducts+1;
     }
-    else{
+    else{s
         req.body.position = parseInt(req.body.position);
     }
-    if(req.file){
-        req.body.thumbnail = `/uploads/${req.file.filename}`;
-    }
+    
     const product = new Product(req.body); // tao moi 1 product
     await product.save(); // luu vao database
     res.redirect(`${systemConfig.prefixAdmin}/products`);
