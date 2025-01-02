@@ -1,6 +1,6 @@
 const Product = require("../../model/product.model");
 
-//[GET] /products
+//[GET] /product
 module.exports.index = async(req,res) =>{ // noi chuoi product ben kia r
     const product = await Product.find({
         status: "In Stock",
